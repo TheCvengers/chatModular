@@ -13,6 +13,7 @@
 #include <netdb.h>
 #include <unistd.h>
 #include <stdint.h>
+
 #ifndef HLOCO_H_
 #define HLOCO_H_
 
@@ -23,9 +24,20 @@
 #define MAXDATASIZE 100
 
 
+typedef struct _Paquete {
+	char username[MAXUSERNAME];
+	uint32_t username_long;
+	short int type_message;
+	uint32_t type_message_long;
+	char message[MAX_MESSAGE_SIZE];
+	uint32_t message_long;
+} paquete;
+
+
 void deciHola();
 
 void crearConexion (char* ip_destino, char* puerto_destino);
 
 void escucharConexiones(char* puerto_escucha);
+
 #endif /* HLOCO_H_ */
